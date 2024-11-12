@@ -14,8 +14,20 @@ return array(
         "price" => "$50/m",
         "linkID" => "12345",
     ),
-    "example" => array(
-        "brandName" => "Example Site",
+    "ashley-madison" => array(
+        "brandName" => "Ashley Madison",
+        "bulletPoints" => "
+            Another Sample Text
+            Discover amazing singles
+            Fast sign-up
+            Great reviews
+            Trusted service
+        ",
+        "price" => "$30/m",
+        "linkID" => "67890",
+    ),
+    "adultfriendfinder" => array(
+        "brandName" => "AdultFriendFinder",
         "bulletPoints" => "
             Another Sample Text
             Discover amazing singles
