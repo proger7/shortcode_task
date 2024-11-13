@@ -25,7 +25,6 @@ function newTables($atts) {
         $newOffersArray = include __DIR__ . '/offers-data.php';
     }
 
-    // Extract attributes from the shortcode.
     $atts = shortcode_atts(array(
         'offers' => 'povr',
         'tag' => '',
@@ -33,38 +32,23 @@ function newTables($atts) {
     ), $atts);
 
     if (!$isCloakActive || ($isCloakActive && !cloakIPChecker())) {
-
-        // Enqueue CSS based on the style attribute
-        // --------------------------------------------
         if (!empty($atts['style'])) {
             enqueue_offers_table_css($atts['style']);
         }
 
-        // Count offers using faster way
-        // --------------------------------------------
-        $offersCount = substr_count($atts['offers'], ',') + 1;
+        $offerKeys = array_map('trim', explode(',', $atts['offers']));
+        $filteredOffersArray = array_filter($newOffersArray, function($key) use ($offerKeys) {
+            return in_array($key, $offerKeys);
+        }, ARRAY_FILTER_USE_KEY);
 
-        // Get HTML from function
-        // --------------------------------------------
-        $tableHTML = newTableLayouts($atts, $newOffersArray);
-
-        // Process shortcodes within the table content
+        $tableHTML = newTableLayouts($atts, $filteredOffersArray);
         return $tableHTML;
-//      return do_shortcode($tableHTML);
     }
 
-    return ''; // return empty if cloakActive() is true and cloakIPChecker() is true
+    return '';
 }
 
 add_shortcode('new_table', 'newTables');
-
-/**
- * Function to generate the HTML layout for the offers table based on the new data structure
- *
- *
- * @return string The parsed value.
- */
-
 
 function newTableLayouts($atts, $newOffersArray) {
     $tableHTML = '<div class="cr-table-style-23 cr-rating-table ' . esc_attr($atts['style']) . '">';
@@ -88,9 +72,9 @@ function newTableLayouts($atts, $newOffersArray) {
     foreach ($newOffersArray as $arr_key => $offer) {
         $highlightClass = $isFirst ? 'highlight' : '';
         $imageSrc = "https://cdn.cdndating.net/images/" . esc_attr($arr_key) . ".png";
-        $userRating = mt_rand(50, 100) / 10;
+        $userRating = mt_rand(80, 100) / 10;
 
-        $tableHTML .= '<div class="review-item ' . $highlightClass . '" data-position="' . ($key + 1) . '">';
+        $tableHTML .= '<div class="review-item ' . $highlightClass . '" data-position="' . esc_attr($arr_key) . '">';
         $tableHTML .= '<div class="review-item-logo type-logo partner-link data-' . esc_attr($arr_key) . '-reviews-table">';
         $tableHTML .= '<img decoding="async" src="' . esc_url($imageSrc) . '" width="180" height="60" alt="' . esc_attr($offer['brandName']) . ' Logo" class="cr-logotype-logo ls-is-cached lazyloaded">';
         $tableHTML .= '</div>';
@@ -114,13 +98,12 @@ function newTableLayouts($atts, $newOffersArray) {
 
         $isFirst = false;
         $rating -= 0.5;
-        if ($rating < 4) $rating = 4;
+        if ($rating < 4.0) $rating = 4.0;
     }
 
     $tableHTML .= '</div></div>';
     return $tableHTML;
 }
-
 
 function enqueue_offers_table_css($style) {
     static $styles_enqueued = array();
