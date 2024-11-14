@@ -311,3 +311,103 @@
     text-decoration-color: rgba(0, 0, 0, 0);
     transition: all .15s;
 }
+
+/* Mobile  */
+@media (max-width: 600px){ 
+  .cr-table-style-23 .shortcode-wp_table-head  { 
+    flex-direction: column-reverse; 
+    align-items: flex-start; 
+    gap: 16px;
+  } 
+
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_table-head .shortcode-wp_rating-meta  { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 4px; 
+    padding: 0;
+  } 
+}     
+
+@media (max-width: 700px){ 
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item  { 
+    gap: 12px;
+  } 
+}     
+
+@media (max-width: 600px){ 
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item  { 
+    padding: 20px 15px; 
+    flex-wrap: wrap; 
+    gap: 12px;
+  } 
+
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item.highlight  { 
+    padding: 25px 15px; 
+    margin-bottom: 15px;
+  } 
+}     
+
+@media (max-width: 700px){ 
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item .shortcode-wp_review-item-logo  { 
+    flex: 1 1 150px;
+  } 
+}     
+
+@media (max-width: 600px){ 
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item .shortcode-wp_review-item-logo  { 
+    flex: 0 0 100%;
+  } 
+}     
+
+@media (max-width: 700px){ 
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item .shortcode-wp_review-info-block  { 
+    padding: 12px 12px 14px;
+  } 
+}     
+
+@media (max-width: 600px){ 
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item .shortcode-wp_review-info-block  { 
+    flex: 1 0 calc(50% - 6px) !important;
+  } 
+}     
+
+@media (max-width: 700px){ 
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item .shortcode-wp_review-info-block.rating-block  { 
+    flex: 1 1 auto;
+  } 
+
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item .shortcode-wp_review-buttons  { 
+    flex: 1 1 120px;
+  } 
+}     
+
+@media (max-width: 600px){ 
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item .shortcode-wp_review-buttons  { 
+    flex: 0 0 100%;
+  } 
+}     
+
+@media (max-width: 700px){ 
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item .shortcode-wp_review-info-block-label  { 
+    margin-bottom: 8px;
+  } 
+
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item .shortcode-wp_review-info-block .shortcode-wp_rating  { 
+    gap: 6px;
+  } 
+
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item .shortcode-wp_review-info-block .shortcode-wp_user-rating  { 
+    font-size: 25px;
+  } 
+
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item .shortcode-wp_review-info-block .shortcode-wp_tip  { 
+    width: 16px; 
+    height: 16px; 
+    line-height: 16px;
+  } 
+
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_reviews-list .shortcode-wp_review-item .shortcode-wp_review-info-block .shortcode-wp_rating .shortcode-wp_cr-rating-stars  { 
+    width: 17px; 
+    height: 15px;
+  } 
+}
