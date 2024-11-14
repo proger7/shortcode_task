@@ -314,7 +314,7 @@
 
 /* Mobile  */
 @media (max-width: 600px){ 
-  .cr-table-style-23 .shortcode-wp_table-head  { 
+  .shortcode-wp_cr-table-style-23 .shortcode-wp_table-head  { 
     flex-direction: column-reverse; 
     align-items: flex-start; 
     gap: 16px;
