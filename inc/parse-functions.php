@@ -211,7 +211,7 @@ function newTableLayouts($atts, $newOffersArray) {
 
             $tableHTML .= '<div class="review-rating inner-container">
                                 <div class="cr-rating-stars" title="User Rating">
-                                    <div class="fill" style="width: ' . esc_attr(($userRating / 5) * 100) . '%"></div>
+                                    <div class="fill" style="width: ' . esc_attr(($userRating / 5) * 100 - 100) . '%"></div>
                                 </div>
                                 ' . number_format($userRating, 1) . '/10 rating
                             </div>';
