@@ -186,12 +186,16 @@ function newTableLayouts($atts, $newOffersArray) {
         $tableHTML .= '<div class="cpm-ajax-info cpm-advertiser-disclosure"></div></div>';
         $tableHTML .= '<div class="reviews-list">';
 
-        $rating = 5.0;
+
 
         foreach ($newOffersArray as $arr_key => $offer) {
+
+            $userRating = mt_rand(40, 50) / 10;
+            $rating = mt_rand(14, 20) / 2;
+
             $highlightClass = $arr_key == 0 ? 'highlight' : '';
             $imageSrc = "https://cdn.cdndating.net/images/" . esc_attr($arr_key) . ".png";
-            $userRating = mt_rand(80, 100) / 10;
+
             $offerLinkURL = site_url() . "/out/offer.php?id=" . esc_attr($offer['linkID']) . "&o=" . urlencode($arr_key) . "&t=dating";
 
             $tableHTML .= '<div class="review-item ' . $highlightClass . '">';
@@ -207,9 +211,9 @@ function newTableLayouts($atts, $newOffersArray) {
 
             $tableHTML .= '<div class="review-rating inner-container">
                                 <div class="cr-rating-stars" title="User Rating">
-                                    <div class="fill" style="width: ' . esc_attr(($userRating / 5) * 100 - 100) . '%"></div>
+                                    <div class="fill" style="width: ' . esc_attr(($userRating / 5) * 100) . '%"></div>
                                 </div>
-                                ' . number_format($userRating, 1) . '/10 rating
+                                ' . number_format($userRating, 1) . '/5 rating
                             </div>';
             $tableHTML .= '<div class="review-score inner-container">
                                 <div class="score-box">
