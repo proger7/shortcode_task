@@ -123,6 +123,12 @@ require $theme_dir . '/inc/structure/sidebars.php';
 require $theme_dir . '/inc/structure/search-modal.php';
 
 /**
- * Load parsing functionality
+ * Load parsing functionality - Task 1
  */
 require $theme_dir . '/inc/parse-functions.php';
+
+
+/**
+ * Load parsing functionality - Task 2
+ */
+require $theme_dir . '/inc/parse-functions-improved.php';
