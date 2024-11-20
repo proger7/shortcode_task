@@ -135,7 +135,6 @@ function newTableLayouts($atts, $newOffersArray) {
             $offerLinkURL = site_url() . "/out/offer.php?id=" . esc_attr($offer['linkID']) . "&o=" . urlencode($arr_key) . "&t=dating";
 
             $tableHTML .= '<div class="wp_shortcode-bridelist_review-item ' . $highlightClass . '">';
-            $tableHTML .= '<div class="wp_shortcode-bridelist_review-site-label">Site of the day</div>';
             $tableHTML .= '<div class="wp_shortcode-bridelist_review-logo wp_shortcode-bridelist_partner-link"><img src="' . esc_url($imageSrc) . '" width="180" height="60" class="wp_shortcode-bridelist_cr-logotype-logo wp_shortcode-bridelist_lazyloaded"></div>';
             
 
@@ -145,7 +144,7 @@ function newTableLayouts($atts, $newOffersArray) {
                 $tableHTML .= '<p>' . esc_html(implode(', ', $bulletPoints)) . '</p>';
             }
             $tableHTML .= '</div>';
-            
+
 
             $tableHTML .= '<div class="wp_shortcode-bridelist_review-rating wp_shortcode-bridelist_inner-container">
                                 <div class="wp_shortcode-bridelist_cr-rating-stars" title="User Rating">
@@ -196,10 +195,9 @@ function newTableLayouts($atts, $newOffersArray) {
             $offerLinkURL = site_url() . "/out/offer.php?id=" . esc_attr($offer['linkID']) . "&o=" . urlencode($arr_key) . "&t=dating";
 
             $tableHTML .= '<div class="wp_shortcode-bridelist_review-item ' . $highlightClass . '">';
-            $tableHTML .= '<div class="wp_shortcode-bridelist_review-site-label">Site of the day</div>';
             $tableHTML .= '<div class="wp_shortcode-bridelist_review-logo wp_shortcode-bridelist_partner-link"><img src="' . esc_url($imageSrc) . '" width="180" height="60" class="wp_shortcode-bridelist_cr-logotype-logo wp_shortcode-bridelist_lazyloaded"></div>';
             
-            $tableHTML .= '<div class="wp_shortcode-bridelist_review-description wp_shortcode-bridelist_inner-container">';
+            $tableHTML .= '<div class="wp_shortcode-bridelist_review-description wp_shortcode-bridelist_inner-container wp_shortcode-bridelist_mobile-only">';
             if (!empty($offer['bulletPoints'])) {
                 $bulletPoints = preg_split('/\r\n|\r|\n/', trim($offer['bulletPoints']));
                 $tableHTML .= '<p>' . esc_html(implode(', ', $bulletPoints)) . '</p>';

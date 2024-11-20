@@ -149,7 +149,7 @@
 
 @media (min-width: 992px){ 
   .wp_shortcode-bridelist_cr-table-style-15 .wp_shortcode-bridelist_reviews-list .wp_shortcode-bridelist_review-item .wp_shortcode-bridelist_review-logo  { 
-    flex: 0 0 120px;
+    flex: 0 0 20%;
   } 
 }     
 
@@ -182,7 +182,7 @@
   } 
 
   .wp_shortcode-bridelist_cr-table-style-15 .wp_shortcode-bridelist_reviews-list .wp_shortcode-bridelist_review-item .wp_shortcode-bridelist_review-rating  { 
-    flex: 0 0 150px; 
+    flex: 0 0 20%; 
     flex-direction: column; 
     gap: 10px; 
     font-size: 14px;
@@ -339,7 +339,7 @@
 
 @media (min-width: 992px){ 
   .wp_shortcode-bridelist_cr-table-style-15 .wp_shortcode-bridelist_reviews-list .wp_shortcode-bridelist_review-item .wp_shortcode-bridelist_review-logo  { 
-    flex: 0 0 120px;
+    flex: 0 0 20%;
   } 
 }     
 
@@ -372,7 +372,7 @@
   } 
 
   .wp_shortcode-bridelist_cr-table-style-15 .wp_shortcode-bridelist_reviews-list .wp_shortcode-bridelist_review-item .wp_shortcode-bridelist_review-rating  { 
-    flex: 0 0 150px; 
+    flex: 0 0 20%; 
     flex-direction: column; 
     gap: 10px; 
     font-size: 14px;
@@ -736,3 +736,14 @@
 }
 
 
+@media (min-width: 768px) { 
+    .wp_shortcode-bridelist_mobile-only {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) { 
+    .wp_shortcode-bridelist_mobile-only {
+        display: block !important;
+    }
+}
