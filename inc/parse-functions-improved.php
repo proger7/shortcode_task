@@ -76,7 +76,7 @@ function displayModelsApp($atts) {
             $output .= '<span class="wp_brand-models_partner-link">' . esc_html($model['Name']) . ', ' . esc_html($model['Age']) . '</span>';
             $output .= '</div>';
             $output .= '<div class="wp_brand-models_profile-offer-online">';
-            $output .= '<span class="wp_brand-models_partner-link">Online at Sofiadate</span>';
+            $output .= '<span class="wp_brand-models_partner-link">Online at ' . esc_html($offerName) . '</span>';
             $output .= '</div>';
 
             $output .= '<div class="wp_brand-models_profile-meta">';
@@ -137,9 +137,6 @@ function displayModelsApp($atts) {
             $output .= '</div>';
             $output .= '</div>';
 
-
-            $output .= '</div>';
-            $output .= '</div>';
         }
 
         $output .= '</div>';
@@ -149,7 +146,48 @@ function displayModelsApp($atts) {
     } elseif ($style == 'site2') {
 
     } elseif ($style == 'site3') {
+        $output = '<div class="reviews-list">';
+        $currentIndex = 0;
 
+        foreach ($filteredModels as $key => $model) {
+            $randomOffer = $offerCount > 0 ? $offers[array_rand($offers)] : '';
+            $offerName = isset($modelBrandArray[$randomOffer]) ? $modelBrandArray[$randomOffer]['brandName'] : '';
+            $imageUrl = "https://cdn.cdndating.net/images/models/{$key}1.png";
+            $link = "/out/offer.php?id=$ModelTracker&o=$key&t=$ModelTag";
+
+            $popularClass = $currentIndex === 0 ? 'review-item-popular' : '';
+            $popularRibbon = $currentIndex === 0 ? '<div class="review-item-ribbon"><span>Most Popular Choice</span></div>' : '';
+
+            $output .= '<div class="review-item ' . esc_attr($popularClass) . '">';
+            $output .= $popularRibbon;
+            $output .= '<div class="review-item-grid">';
+            $output .= '<div class="review-item-column">';
+            $output .= '<div class="logo partner-link">';
+            $output .= '<img src="' . esc_url($imageUrl) . '" width="240" height="300" class="lazyloaded" alt="' . esc_attr($model['Name']) . '">';
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '<div class="review-item-column review-item-column-content">';
+            $output .= '<div class="review-item-info">';
+            $output .= '<a href="' . esc_url($link) . '" class="review-title">' . esc_html($model['Name']) . '</a>';
+            $output .= '<div class="cr-rating-stars"><div class="fill" style="width: 100%;"></div></div>';
+            $output .= '<p>' . esc_html($model['Interests']) . '</p>';
+            $output .= '</div>';
+            $output .= '<div class="review-item-bottom">';
+            $output .= '<div class="review-item-average-age">Average Girls Age <div class="review-item-average-age-count">' . esc_html($model['Age']) . '</div></div>';
+            $output .= '<div class="review-item-rating">Our Score <div class="review-item-overall-rating"><div>5.0</div></div></div>';
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '<div class="review-item-column review-item-column-action">';
+            $output .= '<div class="review-item-buttons">';
+            $output .= '<a href="' . esc_url($link) . '" class="cr-btn square partner-link">Visit Site</a>';
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '</div>';
+            $currentIndex++;
+        }
+
+        $output .= '</div>';
     } elseif ($style == 'site4') {
 
     }
