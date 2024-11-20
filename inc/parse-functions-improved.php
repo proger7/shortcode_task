@@ -146,7 +146,8 @@ function displayModelsApp($atts) {
     } elseif ($style == 'site2') {
 
     } elseif ($style == 'site3') {
-        $output = '<div class="reviews-list">';
+
+        $output = '<div class="s3_shortcode_reviews-list">';
         $currentIndex = 0;
 
         foreach ($filteredModels as $key => $model) {
@@ -155,31 +156,31 @@ function displayModelsApp($atts) {
             $imageUrl = "https://cdn.cdndating.net/images/models/{$key}1.png";
             $link = "/out/offer.php?id=$ModelTracker&o=$key&t=$ModelTag";
 
-            $popularClass = $currentIndex === 0 ? 'review-item-popular' : '';
-            $popularRibbon = $currentIndex === 0 ? '<div class="review-item-ribbon"><span>Most Popular Choice</span></div>' : '';
+            $popularClass = $currentIndex === 0 ? 's3_shortcode_review-item-popular' : '';
+            $popularRibbon = $currentIndex === 0 ? '<div class="s3_shortcode_review-item-ribbon"><span>Most Popular Choice</span></div>' : '';
 
-            $output .= '<div class="review-item ' . esc_attr($popularClass) . '">';
+            $output .= '<div class="s3_shortcode_review-item ' . esc_attr($popularClass) . '">';
             $output .= $popularRibbon;
-            $output .= '<div class="review-item-grid">';
-            $output .= '<div class="review-item-column">';
-            $output .= '<div class="logo partner-link">';
-            $output .= '<img src="' . esc_url($imageUrl) . '" width="240" height="300" class="lazyloaded" alt="' . esc_attr($model['Name']) . '">';
+            $output .= '<div class="s3_shortcode_review-item-grid">';
+            $output .= '<div class="s3_shortcode_review-item-column">';
+            $output .= '<div class="s3_shortcode_logo s3_shortcode_partner-link">';
+            $output .= '<img src="' . esc_url($imageUrl) . '" width="240" height="300" class="s3_shortcode_lazyloaded" alt="' . esc_attr($model['Name']) . '">';
             $output .= '</div>';
             $output .= '</div>';
-            $output .= '<div class="review-item-column review-item-column-content">';
-            $output .= '<div class="review-item-info">';
-            $output .= '<a href="' . esc_url($link) . '" class="review-title">' . esc_html($model['Name']) . '</a>';
-            $output .= '<div class="cr-rating-stars"><div class="fill" style="width: 100%;"></div></div>';
+            $output .= '<div class="s3_shortcode_review-item-column s3_shortcode_review-item-column-content">';
+            $output .= '<div class="s3_shortcode_review-item-info">';
+            $output .= '<a href="' . esc_url($link) . '" class="s3_shortcode_review-title">' . esc_html($model['Name']) . '</a>';
+            $output .= '<div class="s3_shortcode_cr-rating-stars"><div class="s3_shortcode_fill" style="width: 100%;"></div></div>';
             $output .= '<p>' . esc_html($model['Interests']) . '</p>';
             $output .= '</div>';
-            $output .= '<div class="review-item-bottom">';
-            $output .= '<div class="review-item-average-age">Average Girls Age <div class="review-item-average-age-count">' . esc_html($model['Age']) . '</div></div>';
-            $output .= '<div class="review-item-rating">Our Score <div class="review-item-overall-rating"><div>5.0</div></div></div>';
+            $output .= '<div class="s3_shortcode_review-item-bottom">';
+            $output .= '<div class="s3_shortcode_review-item-average-age">Average Girls Age <div class="s3_shortcode_review-item-average-age-count">' . esc_html($model['Age']) . '</div></div>';
+            $output .= '<div class="s3_shortcode_review-item-rating">Our Score <div class="s3_shortcode_review-item-overall-rating"><div>5.0</div></div></div>';
             $output .= '</div>';
             $output .= '</div>';
-            $output .= '<div class="review-item-column review-item-column-action">';
-            $output .= '<div class="review-item-buttons">';
-            $output .= '<a href="' . esc_url($link) . '" class="cr-btn square partner-link">Visit Site</a>';
+            $output .= '<div class="s3_shortcode_review-item-column s3_shortcode_review-item-column-action">';
+            $output .= '<div class="s3_shortcode_review-item-buttons">';
+            $output .= '<a href="' . esc_url($link) . '" class="s3_shortcode_cr-btn s3_shortcode_square s3_shortcode_partner-link">Visit Site</a>';
             $output .= '</div>';
             $output .= '</div>';
             $output .= '</div>';
@@ -188,6 +189,7 @@ function displayModelsApp($atts) {
         }
 
         $output .= '</div>';
+
     } elseif ($style == 'site4') {
 
     }
