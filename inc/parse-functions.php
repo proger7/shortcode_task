@@ -170,57 +170,57 @@ function newTableLayouts($atts, $newOffersArray) {
         $tableHTML .= '</div></div>';
     } elseif ($style == 'single1') {
         $randomVisitors = rand(1000, 3000);
-        $tableHTML .= '<div class="wp_shortcode-bridelist_cr-table-style-15 wp_shortcode-bridelist_cr-rating-table">';
-        $tableHTML .= '<div class="wp_shortcode-bridelist_table-head">';
-        $tableHTML .= '<div class="wp_shortcode-bridelist_visitors-wrapper">
-                            <span class="wp_shortcode-bridelist_review-visitors"><span>' . $randomVisitors . '</span> people visited this site today
+        $tableHTML .= '<div class="wp_shortcode-toplist_cr-table-style-15 wp_shortcode-toplist_cr-rating-table">';
+        $tableHTML .= '<div class="wp_shortcode-toplist_table-head">';
+        $tableHTML .= '<div class="wp_shortcode-toplist_visitors-wrapper">
+                            <span class="wp_shortcode-toplist_review-visitors"><span>' . $randomVisitors . '</span> people visited this site today
                                 <svg width="11" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6.875 0c-3.126 1.72-2.75 6.562-2.75 6.562S2.75 6.125 2.75 4.156C1.11 5.064 0 6.81 0 8.75 0 11.65 2.462 14 5.5 14S11 11.65 11 8.75C11 4.484 6.875 3.61 6.875 0zm-.892 12.191c-1.105.263-2.224-.379-2.5-1.434-.276-1.055.397-2.124 1.502-2.387 2.668-.635 3.003-2.067 3.003-2.067s1.33 5.094-2.005 5.888z" fill="#fff"></path>
                                 </svg>
                             </span>
                         </div>';
-        $tableHTML .= '<div class="wp_shortcode-bridelist_reviews-updated">
+        $tableHTML .= '<div class="wp_shortcode-toplist_reviews-updated">
                             <svg width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="m13.584.284 1.66 1.906 2.484-1.059a.742.742 0 0 1 .994.467l.758 2.455 2.694.048a.743.743 0 0 1 .723.83l-.3 2.557 2.442 1.145c.37.175.53.617.356.989-.332.693-.935 1.587-1.343 2.275l1.769 2.047a.75.75 0 0 1-.134 1.096l-2.09 1.484.788 2.592a.744.744 0 0 1-.566.945l-2.506.502-.329 2.688a.744.744 0 0 1-.953.623l-2.443-.557-1.389 2.32a.74.74 0 0 1-1.078.215l-2.052-1.54-2.208 1.554a.737.737 0 0 1-1.07-.249l-1.248-2.242-2.649.517a.742.742 0 0 1-.88-.709l-.229-2.515-2.625-.61a.746.746 0 0 1-.536-.965l.823-2.436-2.152-1.631a.748.748 0 0 1-.055-1.144l1.697-1.843L.63 9.669a.746.746 0 0 1 .357-1.047L3.335 7.61 3.1 4.91a.747.747 0 0 1 .813-.807l2.493.034.878-2.562a.741.741 0 0 1 1.05-.417l2.286 1.06 1.838-1.98a.739.739 0 0 1 1.125.047Zm-6.652 13c-.983-.989.512-2.492 1.495-1.504l3.311 3.33 5.799-6.462c.927-1.036 2.497.384 1.57 1.42l-6.51 7.252a1.054 1.054 0 0 1-1.568.081l-4.097-4.118Z" fill="#ED8A0A"></path>
                             </svg> Updated for November 2024
                         </div>';
-        $tableHTML .= '<div class="wp_shortcode-bridelist_cpm-ajax-info wp_shortcode-bridelist_cpm-advertiser-disclosure"></div></div>';
-        $tableHTML .= '<div class="wp_shortcode-bridelist_reviews-list">';
+        $tableHTML .= '<div class="wp_shortcode-toplist_cpm-ajax-info wp_shortcode-toplist_cpm-advertiser-disclosure"></div></div>';
+        $tableHTML .= '<div class="wp_shortcode-toplist_reviews-list">';
 
         foreach ($newOffersArray as $arr_key => $offer) {
-            $highlightClass = $arr_key == 0 ? 'wp_shortcode-bridelist_highlight' : '';
+            $highlightClass = $arr_key == 0 ? 'wp_shortcode-toplist_highlight' : '';
             $imageSrc = "https://cdn.cdndating.net/images/" . esc_attr($arr_key) . ".png";
             $userRating = mt_rand(40, 50) / 10;
             $rating = mt_rand(14, 20) / 2;
             $offerLinkURL = site_url() . "/out/offer.php?id=" . esc_attr($offer['linkID']) . "&o=" . urlencode($arr_key) . "&t=dating";
 
-            $tableHTML .= '<div class="wp_shortcode-bridelist_review-item ' . $highlightClass . '">';
-            $tableHTML .= '<div class="wp_shortcode-bridelist_review-logo wp_shortcode-bridelist_partner-link"><img src="' . esc_url($imageSrc) . '" width="180" height="60" class="wp_shortcode-bridelist_cr-logotype-logo wp_shortcode-bridelist_lazyloaded"></div>';
+            $tableHTML .= '<div class="wp_shortcode-toplist_review-item ' . $highlightClass . '">';
+            $tableHTML .= '<div class="wp_shortcode-toplist_review-logo wp_shortcode-toplist_partner-link"><img src="' . esc_url($imageSrc) . '" width="180" height="60" class="wp_shortcode-toplist_cr-logotype-logo wp_shortcode-toplist_lazyloaded"></div>';
             
-            $tableHTML .= '<div class="wp_shortcode-bridelist_review-description wp_shortcode-bridelist_inner-container wp_shortcode-bridelist_mobile-only">';
+            $tableHTML .= '<div class="wp_shortcode-toplist_review-description wp_shortcode-toplist_inner-container wp_shortcode-toplist_mobile-only">';
             if (!empty($offer['bulletPoints'])) {
                 $bulletPoints = preg_split('/\r\n|\r|\n/', trim($offer['bulletPoints']));
                 $tableHTML .= '<p>' . esc_html(implode(', ', $bulletPoints)) . '</p>';
             }
             $tableHTML .= '</div>';
 
-            $tableHTML .= '<div class="wp_shortcode-bridelist_review-rating wp_shortcode-bridelist_inner-container">
-                                <div class="wp_shortcode-bridelist_cr-rating-stars" title="User Rating">
-                                    <div class="wp_shortcode-bridelist_fill" style="width: ' . esc_attr(($userRating / 5) * 100) . '%"></div>
+            $tableHTML .= '<div class="wp_shortcode-toplist_review-rating wp_shortcode-toplist_inner-container">
+                                <div class="wp_shortcode-toplist_cr-rating-stars" title="User Rating">
+                                    <div class="wp_shortcode-toplist_fill" style="width: ' . esc_attr(($userRating / 5) * 100) . '%"></div>
                                 </div>
                                 ' . number_format($userRating, 1) . '/5 rating
                             </div>';
-            $tableHTML .= '<div class="wp_shortcode-bridelist_review-score wp_shortcode-bridelist_inner-container">
-                                <div class="wp_shortcode-bridelist_score-box">
-                                    <div class="wp_shortcode-bridelist_cr-rating-number">' . number_format($rating, 1) . '</div>
-                                    <span class="wp_shortcode-bridelist_our-score">Our score</span>
+            $tableHTML .= '<div class="wp_shortcode-toplist_review-score wp_shortcode-toplist_inner-container">
+                                <div class="wp_shortcode-toplist_score-box">
+                                    <div class="wp_shortcode-toplist_cr-rating-number">' . number_format($rating, 1) . '</div>
+                                    <span class="wp_shortcode-toplist_our-score">Our score</span>
                                 </div>
-                                <div class="wp_shortcode-bridelist_cr-rating-stars" title="Our Score">
-                                    <div class="wp_shortcode-bridelist_fill" style="width: ' . esc_attr(($rating / 10) * 100) . '%"></div>
+                                <div class="wp_shortcode-toplist_cr-rating-stars" title="Our Score">
+                                    <div class="wp_shortcode-toplist_fill" style="width: ' . esc_attr(($rating / 10) * 100) . '%"></div>
                                 </div>
                             </div>';
-            $tableHTML .= '<div class="wp_shortcode-bridelist_review-buttons">
-                                <a href="' . esc_url($offerLinkURL) . '" target="_blank" class="wp_shortcode-bridelist_cr-btn wp_shortcode-bridelist_partner-link">Visit Site</a>
+            $tableHTML .= '<div class="wp_shortcode-toplist_review-buttons">
+                                <a href="' . esc_url($offerLinkURL) . '" target="_blank" class="wp_shortcode-toplist_cr-btn wp_shortcode-toplist_partner-link">Visit Site</a>
                             </div>';
             $tableHTML .= '</div>';
         }

@@ -1,9 +1,9 @@
 :root { 
-    --cr-accent-color: #a83434; 
-    --cr-accent-color-rgb: 168,52,52; 
-    --cr-btn-text-color: #FFFFFF;
-    --lt-content-bg-color: #f8f8f8; 
-    --lt-content-text-color: #1f1e1e; 
+    --cr-accent-color-md: #a83434; 
+    --cr-accent-color-rgb-md: 168,52,52; 
+    --cr-btn-text-color-md: #FFFFFF;
+    --lt-content-bg-color-md: #f8f8f8; 
+    --lt-content-text-color-md: #1f1e1e; 
 } 
 
 .wp_shortcode-bridelist_cr-rating-table { 
@@ -78,7 +78,7 @@
     background-color: #fff; 
     box-shadow: 0 0 6px rgba(0,0,0,.15); 
     border-radius: 10px; 
-    border: 2px solid var(--cr-accent-color); 
+    border: 2px solid var(--cr-accent-color-md); 
     margin-bottom: 20px; 
     overflow: hidden;
   } 
@@ -87,7 +87,7 @@
     position: relative; 
     padding: 5px 8px; 
     color: #fff; 
-    background-color: var(--cr-accent-color); 
+    background-color: var(--cr-accent-color-md); 
     border-radius: 4px; 
     font-size: 14px;
   } 
@@ -102,7 +102,7 @@
     height: 0; 
     border-left: 10px solid rgba(0,0,0,0); 
     border-right: 10px solid rgba(0,0,0,0); 
-    border-top: 10px solid var(--cr-accent-color);
+    border-top: 10px solid var(--cr-accent-color-md);
   } 
 
   .wp_shortcode-bridelist_cr-table-style-15 .wp_shortcode-bridelist_table-head .wp_shortcode-bridelist_reviews-updated svg  { 
@@ -148,7 +148,7 @@
 }     
 
 .wp_shortcode-bridelist_partner-link:not(.wp_shortcode-bridelist_offer-title):not(.wp_shortcode-bridelist_offer-logo):not(.wp_shortcode-bridelist_offer-premium):not(.wp_shortcode-bridelist_offer-site):not(.wp_shortcode-bridelist_logo):not(.wp_shortcode-bridelist_cr-offer-logo):not(.wp_shortcode-bridelist_offer-title-col):not(.wp_shortcode-bridelist_offer-name):not(.wp_shortcode-bridelist_review-title):not(.wp_shortcode-bridelist_review-promotion):not(.wp_shortcode-bridelist_offer-thumb-title):not(.wp_shortcode-bridelist_offer-rating):not(.wp_shortcode-bridelist_cr-btn) { 
-    color: var(--cr-accent-color); 
+    color: var(--cr-accent-color-md); 
     font-weight: bold; 
     text-decoration: none;
 } 
@@ -268,7 +268,7 @@
     background-color: #fff; 
     box-shadow: 0 0 6px rgba(0,0,0,.15); 
     border-radius: 10px; 
-    border: 2px solid var(--cr-accent-color); 
+    border: 2px solid var(--cr-accent-color-md); 
     margin-bottom: 20px; 
     overflow: hidden;
   } 
@@ -277,7 +277,7 @@
     position: relative; 
     padding: 5px 8px; 
     color: #fff; 
-    background-color: var(--cr-accent-color); 
+    background-color: var(--cr-accent-color-md); 
     border-radius: 4px; 
     font-size: 14px;
   } 
@@ -292,7 +292,7 @@
     height: 0; 
     border-left: 10px solid rgba(0,0,0,0); 
     border-right: 10px solid rgba(0,0,0,0); 
-    border-top: 10px solid var(--cr-accent-color);
+    border-top: 10px solid var(--cr-accent-color-md);
   } 
 
   .wp_shortcode-bridelist_cr-table-style-15 .wp_shortcode-bridelist_table-head .wp_shortcode-bridelist_reviews-updated svg  { 
@@ -338,7 +338,7 @@
 }     
 
 .wp_shortcode-bridelist_partner-link:not(.wp_shortcode-bridelist_offer-title):not(.wp_shortcode-bridelist_offer-logo):not(.wp_shortcode-bridelist_offer-premium):not(.wp_shortcode-bridelist_offer-site):not(.wp_shortcode-bridelist_logo):not(.wp_shortcode-bridelist_cr-offer-logo):not(.wp_shortcode-bridelist_offer-title-col):not(.wp_shortcode-bridelist_offer-name):not(.wp_shortcode-bridelist_review-title):not(.wp_shortcode-bridelist_review-promotion):not(.wp_shortcode-bridelist_offer-thumb-title):not(.wp_shortcode-bridelist_offer-rating):not(.wp_shortcode-bridelist_cr-btn) { 
-    color: var(--cr-accent-color); 
+    color: var(--cr-accent-color-md); 
     font-weight: bold; 
     text-decoration: none;
 } 
@@ -482,8 +482,8 @@
     border: none; 
     cursor: pointer; 
     min-width: 110px; 
-    background: var(--cr-accent-color); 
-    color: var(--cr-btn-text-color); 
+    background: var(--cr-accent-color-md); 
+    color: var(--cr-btn-text-color-md); 
     outline: unset;
 } 
 
@@ -494,7 +494,7 @@
 }     
 
 .wp_shortcode-bridelist_cr-btn:hover { 
-    background: rgba(var(--cr-accent-color-rgb), 0.75);
+    background: rgba(var(--cr-accent-color-rgb-md), 0.75);
 } 
 
 @media (min-width: 992px){ 
@@ -521,7 +521,7 @@
   .wp_shortcode-bridelist_cr-table-style-15 .wp_shortcode-bridelist_reviews-list .wp_shortcode-bridelist_review-item .wp_shortcode-bridelist_review-score .wp_shortcode-bridelist_cr-rating-number  { 
     font-size: 28px; 
     font-weight: bold; 
-    color: var(--cr-accent-color);
+    color: var(--cr-accent-color-md);
   } 
 
   .wp_shortcode-bridelist_cr-table-style-15 .wp_shortcode-bridelist_reviews-list .wp_shortcode-bridelist_review-item .wp_shortcode-bridelist_review-score .wp_shortcode-bridelist_score-box .wp_shortcode-bridelist_cr-rating-number  { 
@@ -598,7 +598,7 @@
     background-color: #fff; 
     box-shadow: 0 0 6px rgba(0,0,0,.15); 
     border-radius: 4px; 
-    border: 2px solid var(--cr-accent-color); 
+    border: 2px solid var(--cr-accent-color-md); 
     margin-bottom: 20px;
   } 
 
