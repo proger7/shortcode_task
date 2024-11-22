@@ -192,6 +192,64 @@ function displayModelsApp($atts) {
 
     } elseif ($style == 'site4') {
 
+        $output = '<div class="profiles-grid">';
+
+        foreach ($filteredModels as $key => $model) {
+            $randomOffer = $offerCount > 0 ? $offers[array_rand($offers)] : '';
+            $offerName = isset($modelBrandArray[$randomOffer]) ? $modelBrandArray[$randomOffer]['brandName'] : '';
+            $link = "/out/offer.php?id=$ModelTracker&o=$key&t=$ModelTag";
+
+            $output .= '<div class="profile-grid-item">';
+            $output .= '<div class="tns-outer">';
+            $output .= '<div class="tns-controls">';
+            $output .= '<button type="button" data-controls="prev">‹</button>';
+            $output .= '<button type="button" data-controls="next">›</button>';
+            $output .= '</div>';
+            $output .= '<div class="tns-visually-hidden">slide <span>1</span> of 5</div>';
+            $output .= '<div id="tns1-mw" class="tns-ovh tns-ah style-qZdYU">';
+            $output .= '<div id="tns1-iw">';
+            $output .= '<div class="profile-top-side tns-slider tns-subpixel tns-horizontal style-YQhZ3" id="tns1">';
+
+            for ($i = 1; $i <= 5; $i++) {
+                $output .= '<div class="item tns-item">';
+                $output .= '<img src="' . esc_url("https://cdn.cdndating.net/images/models/{$key}{$i}.png") . '" width="230" height="280" class="loaded lazyloaded">';
+                if ($i == 5) {
+                    $output .= '<div class="more"> ' . esc_html($model['Name']) . ' has more photos!<br>Do you want to watch? <div class="profile-all-photos-button partner-link"><a href="' . esc_url($link) . '" target="_blank" class="profile-button partner-link-view"> View photos </a></div></div>';
+                }
+                $output .= '</div>';
+            }
+
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '<div class="tns-nav">';
+            for ($i = 0; $i < 5; $i++) {
+                $output .= '<button type="button" style="' . ($i == 0 ? '' : '') . '" class="' . ($i == 0 ? 'tns-nav-active' : '') . '"></button>';
+            }
+            $output .= '</div>';
+            $output .= '</div>';
+
+            $output .= '<div class="profile-bottom-side">';
+            $output .= '<div class="profile-info">';
+            $output .= '<div class="profile-name">';
+            $output .= '<span class="partner-link">' . esc_html($model['Name']) . ', ' . esc_html($model['Age']) . '</span>';
+            $output .= '</div>';
+            $output .= '<div class="profile-location">' . esc_html($model['Location']) . '</div>';
+            $output .= '<div class="profile-website"> From: <span class="profile-website-link partner-link">' . esc_html($offerName) . '</span></div>';
+            $output .= '</div>';
+            $output .= '<a href="' . esc_url($link) . '" class="profile-button partner-link"> Find Me </a>';
+            $output .= '</div>';
+
+            $output .= '</div>';
+        }
+
+        $output .= '</div>';
+        $output .= '<link rel="stylesheet" href="' . esc_url(get_template_directory_uri() . '/css/tiny-slider.css') . '">';
+        $output .= '<script src="' . esc_url(get_template_directory_uri() . '/js/tiny-slider.js') . '"></script>';
+        $output .= '<script src="' . esc_url(get_template_directory_uri() . '/js/tiny-init.js') . '"></script>';
+
+        return $output;
+
     }
 
     return $output;
