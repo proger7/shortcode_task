@@ -145,6 +145,62 @@ function displayModelsApp($atts) {
 
     } elseif ($style == 'site2') {
 
+        $output = '<div class="wp_s2_site_profiles-grid">';
+
+        foreach ($filteredModels as $key => $model) {
+            $randomOffer = $offerCount > 0 ? $offers[array_rand($offers)] : '';
+            $offerName = isset($modelBrandArray[$randomOffer]) ? $modelBrandArray[$randomOffer]['brandName'] : '';
+            $link = "/out/offer.php?id=$ModelTracker&o=$key&t=$ModelTag";
+
+            $output .= '<div class="wp_s2_site_profile-grid-item">';
+            $output .= '<div class="wp_s2_site_tns-outer">';
+            $output .= '<div class="wp_s2_site_tns-controls"><button type="button" data-controls="prev">‹</button><button type="button" data-controls="next">›</button></div>';
+            $output .= '<div class="wp_s2_site_tns-visually-hidden">slide <span>1</span> of 5</div>';
+            $output .= '<div id="tns1-mw" class="wp_s2_site_tns-ovh wp_s2_site_tns-ah wp_s2_site_style-oWeJE">';
+            $output .= '<div id="tns1-iw">';
+            $output .= '<div class="wp_s2_site_profile-top-side wp_s2_site_tns-slider wp_s2_site_tns-subpixel wp_s2_site_tns-horizontal wp_s2_site_style-99FO2" id="tns1">';
+
+            for ($i = 1; $i <= 5; $i++) {
+                $imageUrl = "https://cdn.cdndating.net/images/models/{$key}{$i}.png";
+                $output .= '<div class="wp_s2_site_item wp_s2_site_tns-item">';
+                $output .= '<img src="' . esc_url($imageUrl) . '" width="230" height="280" class="wp_s2_site_loaded wp_s2_site_lazyloaded">';
+                if ($i == 5) {
+                    $output .= '<div class="wp_s2_site_more">' . esc_html($model['Name']) . ' has more photos!<br>Do you want to watch?';
+                    $output .= '<div class="wp_s2_site_profile-all-photos-button wp_s2_site_partner-link"><a href="' . esc_url($link) . '" class="wp_s2_site_profile-button wp_s2_site_partner-link-view">View photos</a></div>';
+                    $output .= '</div>';
+                }
+                $output .= '</div>';
+            }
+
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '<div class="wp_s2_site_tns-nav">';
+            for ($i = 0; $i < 5; $i++) {
+                $output .= '<button type="button" class="' . ($i == 0 ? 'wp_s2_site_tns-nav-active' : '') . '"></button>';
+            }
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '<div class="wp_s2_site_profile-bottom-side">';
+            $output .= '<div class="wp_s2_site_profile-info">';
+            $output .= '<div class="wp_s2_site_profile-name">';
+            $output .= '<span class="wp_s2_site_partner-link">' . esc_html($model['Name']) . ', ' . esc_html($model['Age']) . '</span>';
+            $output .= '</div>';
+            $output .= '<div class="wp_s2_site_profile-location">' . esc_html($model['Location']) . '</div>';
+            $output .= '<div class="wp_s2_site_profile-website"> From: <span class="wp_s2_site_profile-website-link wp_s2_site_partner-link">' . esc_html($offerName) . '</span></div>';
+            $output .= '</div>';
+            $output .= '<a href="' . esc_url($link) . '" class="wp_s2_site_profile-button wp_s2_site_partner-link">Visit Profile</a>';
+            $output .= '</div>';
+            $output .= '</div>';
+        }
+
+        $output .= '</div>';
+        $output .= '<link rel="stylesheet" href="' . esc_url(get_template_directory_uri() . '/css/tiny-slider.css') . '">';
+        $output .= '<script src="' . esc_url(get_template_directory_uri() . '/js/tiny-slider.js') . '"></script>';
+        $output .= '<script src="' . esc_url(get_template_directory_uri() . '/js/tiny-init.js') . '"></script>';
+
+        return $output;
+
     } elseif ($style == 'site3') {
 
         $output = '<div class="s3_shortcode_reviews-list">';
@@ -211,8 +267,11 @@ function displayModelsApp($atts) {
             $output .= '<div class="profile-top-side tns-slider tns-subpixel tns-horizontal style-YQhZ3" id="tns1">';
 
             for ($i = 1; $i <= 5; $i++) {
+                $imageUrl = "https://cdn.cdndating.net/images/models/{$key}{$i}.png";
+
+
                 $output .= '<div class="item tns-item">';
-                $output .= '<img src="' . esc_url("https://cdn.cdndating.net/images/models/{$key}{$i}.png") . '" width="230" height="280" class="loaded lazyloaded">';
+                $output .= '<img src="' . esc_url($imageUrl) . '" width="230" height="280" class="loaded lazyloaded">';
                 if ($i == 5) {
                     $output .= '<div class="more"> ' . esc_html($model['Name']) . ' has more photos!<br>Do you want to watch? <div class="profile-all-photos-button partner-link"><a href="' . esc_url($link) . '" target="_blank" class="profile-button partner-link-view"> View photos </a></div></div>';
                 }
