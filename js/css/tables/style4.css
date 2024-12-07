@@ -324,3 +324,18 @@ ul li  {
     top: 1px; 
     background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDE0IDIwIiBmaWxsPSJub25lIj4KICAgIDxwYXRoIGQ9Ik03LjAxNTE2IDE3LjE4NThDMTAuMzkwNCAxNy4xODU4IDEzLjEyMDIgMTQuNDQ4MiAxMy4xMjAyIDExLjAzMzJDMTMuMTIwMiA3LjYxODI0IDEwLjM5MDYgNC45MSA3LjAxNTE2IDQuOTFDMy42Mzk5IDQuOTEgMC45MTAxNTYgNy42NDc2OCAwLjkxMDE1NiAxMS4wNjI2QzAuOTEwMTU2IDE0LjQ3NzYgMy42MTA0NCAxNy4xODU4IDcuMDE1MTYgMTcuMTg1OFpNNC43MjU3OCAxMC4wMDI5QzQuNDAyOTEgOS42NzkwMiA0LjQwMjkxIDkuMTE5NjUgNC43MjU3OCA4Ljc5NTgzQzUuMDQ4NjUgOC40NzIwMSA1LjYwNjM2IDguNDcyIDUuOTI5MjIgOC43OTU4M0w2Ljk4NTg2IDkuODU1NjFMOC4wNDI0OSA4Ljc5NTgzQzguMzY1MzYgOC40NzIgOC45MjMwNyA4LjQ3MiA5LjI0NTkzIDguNzk1ODNDOS41Njg4IDkuMTE5NjYgOS41Njg4IDkuNjc5MDQgOS4yNDU5MyAxMC4wMDI5TDguMTg5MyAxMS4wNjI2TDkuMjQ1OTMgMTIuMTIyNEM5LjU2ODggMTIuNDQ2MyA5LjU2ODggMTMuMDA1NiA5LjI0NTkzIDEzLjMyOTVDOS4wNjk4NiAxMy41MDYxIDguODY0MzEgMTMuNTk0NCA4LjYyOTQ2IDEzLjU5NDRDOC4zOTQ2MyAxMy41OTQ0IDguMTg5MjggMTMuNTA2MSA4LjAxMjk4IDEzLjMyOTVMNi45NTYzNSAxMi4yNjk3TDUuOTI5MTcgMTMuMzI5NUM1Ljc1MzEgMTMuNTA2MSA1LjU0NzU0IDEzLjU5NDQgNS4zMTI3IDEzLjU5NDRDNS4wNzc4NiAxMy41OTQ0IDQuODcyNTEgMTMuNTA2MSA0LjY5NjIyIDEzLjMyOTVDNC4zNzMzNSAxMy4wMDU2IDQuMzczMzUgMTIuNDQ2MyA0LjY5NjIyIDEyLjEyMjRMNS43NTI4NiAxMS4wNjI2TDQuNzI1NzggMTAuMDAyOVoiIGZpbGw9IiMyMTJENDEiLz4KPC9zdmc+") no-repeat;
 }
+
+
+@media (max-width: 650px) {
+    .mailbride_site_review-item,
+    .mailbride_site_review-info .mailbride_site_review-pros-cons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .mailbride_site_review-info .mailbride_site_review-buttons .mailbride_site_cr-btn.mailbride_site_partner-link {
+        width: 100%;
+    }
+    .mailbride_site_review-info .mailbride_site_review-name-rating {
+        justify-content: space-between;
+    }
+}
