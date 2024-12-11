@@ -309,6 +309,102 @@ function newTableLayouts($atts, $newOffersArray) {
 
 
         return $tableHTML;
+    } elseif ($style == 'style5') {
+
+            $newOffersArray = include __DIR__ . '/offers-hookupguru-data.php';
+            $tableHTML = '<div class="all_reviews snipcss-J8FO5" show-banner="false" data-v-ef4df5c3="" data-v-5fde7f3a="">';
+            $ratings = [];
+            for ($i = 5.0; $i >= 3.6; $i -= 0.2) {
+                $ratings[] = number_format($i, 1);
+            }
+            $ratingIndex = 0;
+
+            $scoreOptions = [];
+            for ($i = 7.0; $i <= 10.0; $i += 0.1) {
+                $scoreOptions[] = number_format($i, 1);
+            }
+
+
+            foreach ($newOffersArray as $arr_key => $offer) {
+                $highlightClass = $arr_key == 0 ? 'highlight-offer' : '';
+                $signUpLink = '/sign-up';
+                $reviewLink = esc_url($offer['readReviewLink']);
+                $currentRating = $ratings[$ratingIndex];
+                $ratingIndex = ($ratingIndex + 1) % count($ratings);
+                $randomScore = $scoreOptions[array_rand($scoreOptions)];
+                $offerPageLink = site_url() . "/out/offer.php?id=" . esc_attr($offer['linkID']) . "&o=" . urlencode($arr_key) . "&t=dating";
+
+                $tableHTML .= '<div class="post_preview ' . $highlightClass . '" data-v-5fde7f3a="" data-v-de82ba65="">';
+                $tableHTML .= '<a href="' . esc_url($offerPageLink) . '" class="webcam post_img_pr" data-v-de82ba65="">';
+                $tableHTML .= '<div class="filter" data-v-de82ba65="">';
+                $tableHTML .= '<div data-text="' . esc_attr($offer['brandName']) . '" class="title_logo" data-v-de82ba65="">' . esc_html($offer['brandName']) . '</div>';
+                $tableHTML .= '</div>';
+                $tableHTML .= '</a>';
+                $tableHTML .= '<div class="info" data-v-de82ba65="">';
+                $tableHTML .= '<div class="first_block" data-v-de82ba65="">';
+                $tableHTML .= '<a href="' . esc_url($offerPageLink) . '" class="title" data-v-de82ba65="">' . esc_html($offer['brandName']) . '</a>';
+                $tableHTML .= '<div class="stars-wrapper" data-v-de82ba65="" data-v-d9c24a74="">';
+                $tableHTML .= '<div class="info" data-v-d9c24a74="">';
+                $tableHTML .= '<div class="score" data-v-d9c24a74="">' . $randomScore . '</div>';
+                $tableHTML .= '<div class="stars" data-v-d9c24a74="">';
+
+                $fullStars = 0;
+
+                if ($randomScore >= 9.0 && $randomScore <= 9.5) {
+                    $fullStars = 4;
+                } elseif ($randomScore > 9.5) {
+                    $fullStars = 5;
+                } elseif ($randomScore >= 8.0 && $randomScore < 9.0) {
+                    $fullStars = 3;
+                } elseif ($randomScore >= 7.0 && $randomScore < 8.0) {
+                    $fullStars = 2;
+                } elseif ($randomScore < 7.0) {
+                    $fullStars = 1;
+                }
+
+                for ($i = 0; $i < 5; $i++) {
+                    if ($i < $fullStars) {
+                        $tableHTML .= '<span data-v-d9c24a74="" class="full"></span>';
+                    } else {
+                        $tableHTML .= '<span data-v-d9c24a74="" class="empty"></span>';
+                    }
+                }
+
+                $tableHTML .= '</div>';
+                $tableHTML .= '</div>';
+                $tableHTML .= '</div>';
+                $tableHTML .= '</div>';
+                $tableHTML .= '<div class="second_block" data-v-de82ba65="">';
+                $tableHTML .= '<a class="btn_pink external_link" target="_blank" href=' . $signUpLink . ' data-v-de82ba65="">Sign Up</a>';
+                $tableHTML .= '</div>';
+                $tableHTML .= '</div>';
+                $tableHTML .= '<div class="info_second" data-v-de82ba65="">';
+                $tableHTML .= '<div class="block online" data-v-de82ba65="">';
+                $tableHTML .= '<div class="header" data-v-de82ba65="">Users Online</div>';
+                $tableHTML .= '<div class="text" data-v-de82ba65="">&nbsp;' . esc_html($offer['usersOnline']) . '</div>';
+                $tableHTML .= '</div>';
+                $tableHTML .= '<div class="block rate" data-v-de82ba65="">';
+                $tableHTML .= '<div class="header" data-v-de82ba65="">Hookup Rate</div>';
+                $tableHTML .= '<div class="text" data-v-de82ba65="">' . esc_html($offer['hookupRate']) . '<span class="percent" data-v-de82ba65="">%</span></div>';
+                $tableHTML .= '</div>';
+                $tableHTML .= '<div class="block gender" data-v-de82ba65="">';
+                $tableHTML .= '<div class="header" data-v-de82ba65="">Gender Rating</div>';
+                $tableHTML .= '<div class="text" data-v-de82ba65="">';
+                $tableHTML .= '<div class="men" data-v-de82ba65="">&nbsp;' . esc_html($offer['genderRatingMale']) . '<span class="percent" data-v-de82ba65="">%</span></div>';
+                $tableHTML .= '<div class="women" data-v-de82ba65="">&nbsp;' . esc_html($offer['genderRatingFemale']) . '<span class="percent" data-v-de82ba65="">%</span></div>';
+                $tableHTML .= '</div>';
+                $tableHTML .= '</div>';
+                $tableHTML .= '<div class="block safety" data-v-de82ba65="">';
+                $tableHTML .= '<div class="header" data-v-de82ba65="">Safety</div>';
+                $tableHTML .= '<div class="text" data-v-de82ba65="">' . $currentRating . '<span data-v-de82ba65=""> / 5.0</span></div>';
+                $tableHTML .= '</div>';
+                $tableHTML .= '</div>';
+                $tableHTML .= '</div>';
+            }
+
+            
+            $tableHTML .= '</div>';
+
     }
 
     return $tableHTML;
