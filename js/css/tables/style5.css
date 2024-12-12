@@ -376,13 +376,13 @@
 } 
 
 .ad_wbc_post_preview .ad_wbc_info_second .ad_wbc_block.ad_wbc_gender .ad_wbc_text .ad_wbc_men[data-v-de82ba65]::before { 
-    content: url(./../../../images/man_pink.ad_wbc_svg); 
+    content: url(./../../../images/man_pink.svg); 
     height: 20px; 
     width: 20px;
 } 
 
 .ad_wbc_post_preview .ad_wbc_info_second .ad_wbc_block.ad_wbc_gender .ad_wbc_text .ad_wbc_women[data-v-de82ba65]::before { 
-    content: url(./../../../images/woman.ad_wbc_svg); 
+    content: url(./../../../images/woman.svg); 
     height: 20px; 
     width: 20px;
 } 
