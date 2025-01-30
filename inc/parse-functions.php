@@ -33,7 +33,7 @@ function newTables($atts) {
 
     if (!$isCloakActive || ($isCloakActive && !cloakIPChecker())) {
         if (!empty($atts['style'])) {
-            enqueue_offers_table_css($atts['style']);
+            custom_offers_table_css($atts['style']);
         }
 
         $offerKeys = array_map('trim', explode(',', $atts['offers']));
@@ -451,7 +451,7 @@ function newTableLayouts($atts, $newOffersArray) {
 }
 
 
-function enqueue_offers_table_css($style) {
+function custom_offers_table_css($style) {
     $handle = "offers-table-css-$style";
     if (!wp_style_is($handle, 'enqueued')) {
         $css_url = site_url() . "/wp-content/themes/generatepress/js/css/tables/$style.css";
