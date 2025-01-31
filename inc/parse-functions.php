@@ -405,9 +405,21 @@ function newTableLayouts($atts, $newOffersArray) {
     } elseif ($style == 'top1') {
             $newOffersArray = include __DIR__ . '/offers-aimojo-data.php';
 
+            $atts = shortcode_atts([
+                'offers' => '',
+            ], $atts);
+
+            $offerKeys = array_filter(array_map('trim', explode(',', $atts['offers'])));
+
+            $filteredOffersArray = array_intersect_key($newOffersArray, array_flip($offerKeys));
+
+            if (empty($filteredOffersArray)) {
+                return '<p>No offers found for the specified keys.</p>';
+            }
+
             $tableHTML = '<div class="aimojo_st_comparison-wrapper aimojo_st_snipcss0-0-0-1 aimojo_st_snipcss-vno3X">';
 
-            foreach ($newOffersArray as $arr_key => $offer) {
+            foreach ($filteredOffersArray as $arr_key => $offer) {
                 $imageSrc = "https://cdn.cdndating.net/images/" . esc_attr($arr_key) . ".png";
                 $offerLinkURL = site_url() . "/out/offer.php?id=" . esc_attr($offer['linkID']) . "&o=" . urlencode($arr_key) . "&t=dating";
                 $labelName = esc_html($offer['labelName']);
@@ -445,6 +457,7 @@ function newTableLayouts($atts, $newOffersArray) {
             $tableHTML .= '</div>';
 
             return $tableHTML;
+
     }
 
     return $tableHTML;
