@@ -17,6 +17,7 @@
     box-shadow: 0 2px 25px 0 rgba(44,64,81,.15); 
     display: flex; 
     gap: 20px;
+    margin-bottom: 20px;
 } 
 
 @media all{ 

@@ -255,8 +255,19 @@ function newTableLayouts($atts, $newOffersArray) {
 
         $newOffersArray = include __DIR__ . '/offers-mail-bride-data.php';
 
+        $atts = shortcode_atts([
+            'offers' => '',
+        ], $atts);
+
+        $offerKeys = array_filter(array_map('trim', explode(',', $atts['offers'])));
+        $filteredOffersArray = array_intersect_key($newOffersArray['brands'], array_flip($offerKeys));
+
+        if (empty($filteredOffersArray)) {
+            return '<p>No offers found for the specified keys.</p>';
+        }
+
         $tableHTML = '<div class="mailbride_site_review-table-wrapper">';
-        foreach ($newOffersArray['brands'] as $arr_key => $offer) {
+        foreach ($filteredOffersArray as $arr_key => $offer) {
             $highlightClass = $arr_key === "sofia-date" ? 'mailbride_site_highlight-review' : '';
             $imageSrc = "https://cdn.cdndating.net/images/" . esc_attr($arr_key) . ".png";
             $ratingFormatted = number_format($offer['rating'], 1);
