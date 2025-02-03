@@ -82,7 +82,9 @@ function newTableLayouts($atts, $newOffersArray) {
 
             $tableHTML .= '<div class="shortcode-wp_review-item ' . $highlightClass . '" data-position="' . esc_attr($arr_key) . '">';
             $tableHTML .= '<div class="shortcode-wp_review-item-logo shortcode-wp_type-logo shortcode-wp_partner-link shortcode-wp_data-' . esc_attr($arr_key) . '-reviews-table">';
+            $tableHTML .= '<a target="_blank" href="' . esc_url($offerLinkURL) . '">';
             $tableHTML .= '<img decoding="async" src="' . esc_url($imageSrc) . '" width="180" height="60" alt="' . esc_attr($offer['brandName']) . ' Logo" class="shortcode-wp_cr-logotype-logo ls-is-cached lazyloaded">';
+            $tableHTML .= '</a>';
             $tableHTML .= '</div>';
 
             $tableHTML .= '<div class="shortcode-wp_review-info-block shortcode-wp_rating-block">';
